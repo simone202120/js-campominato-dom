@@ -2,6 +2,8 @@ let contenitore=  document.getElementById('contenitore');
 let play = document.getElementById("play");
 let bombe = [];
 let tentativi=0;
+let numtentativi= document.getElementById('numtentativo');
+let risultato= document.getElementById('ris');
 
 
 
@@ -65,13 +67,16 @@ function creaquadrati(numero){
                     for(z=0; z<arrayelements.length; z++){
                         arrayelements[z].classList.remove('azzurro');
                     }
-                    alert(`Hai perso con ${tentativi}tentativi`)
+                    risultato.innerHTML=`Hai perso dopo ${tentativi} tentativi`;
+                    risultato.classList.remove('none');
                 }else{
                     creaquadrato.classList.add('azzurro');
                     console.log(i)
                     tentativi=tentativi + 1;
-                        if(tentativi == numero - 16){
-                            alert('complimenti hai vinto')
+                    numtentativi.innerHTML=tentativi;
+                    if(tentativi == numero - 16){
+                        risultato.innerHTML=`Complimenti hai vinto`;
+                    risultato.classList.remove('none');
                         }
                 }
             }

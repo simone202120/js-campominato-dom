@@ -14,9 +14,14 @@ header{
 
 body{
     background-color: black;
+    position: relative;
 }
 .foothrader{
     display: flex;
+}
+.tentativi{
+    text-align: center;
+    margin: 0 20px 0 20px;
 }
 #play{
     height: 40px;
@@ -52,6 +57,18 @@ body{
     background-color: brown;
 }
 
-.quadrato .none{
-background-color: black;
+.risultato{
+    height: 400px;
+    width: 1000px;
+    position: absolute;
+    background-color:greenyellow;
+    color: red;
+    top:200px;
+    left: 130px;
+    font-size: 80px;
+    text-align: center;
+    padding: 100px;
+}
+.none{
+    display: none;
 }
