@@ -1,7 +1,7 @@
 let contenitore=  document.getElementById('contenitore');
 let play = document.getElementById("play");
 let bombe = [];
-
+let tentativi=0;
 
 
 
@@ -11,25 +11,32 @@ play.addEventListener('click', function(){
     
     contenitore.innerHTML='';
 
-    if(difficolta == 1){
-        n=100;
-    }else if(difficolta == 2){
-        n=81;
-    }else if(difficolta ==  3){
-        n=49;
-    }
-
-    for(let x=1; x<=16; x++){
-        posBomba=Math.floor(Math.random() * (n)) + 1;
-
-        if(bombe.includes(posBomba)){
-            x = x-1;
-        }else{
-            bombe.push(posBomba);
+        if(difficolta == 1){
+            n=100;
+        }else if(difficolta == 2){
+            n=81;
+        }else if(difficolta ==  3){
+            n=49;
         }
-    }
-    console.log('larray delle bombe è'+ bombe )
-    creaquadrati(n);
+
+        /*for(let x=1; x<=16; x++){
+            posBomba=Math.floor(Math.random() * (n)) + 1;
+
+            if(bombe.includes(posBomba)){
+                x = x-1;
+            }else{
+                bombe.push(posBomba);
+            }
+        }*/
+
+        while(bombe.length < 16){
+            posBomba=Math.floor(Math.random() * (n)) + 1;
+            if(!bombe.includes(posBomba)){
+                bombe.push(posBomba);
+            }
+        }
+        console.log('larray delle bombe è '+ bombe )
+        creaquadrati(n);
 
     }
 );
@@ -51,14 +58,24 @@ function creaquadrati(numero){
 
         creaquadrato.addEventListener('click',
             function (){
+                
                 if(bombe.includes(i)){
-                    creaquadrato.classList.toggle('rosso');
-                    
+                    creaquadrato.classList.add('rosso');
+                    let arrayelements= document.querySelectorAll('.azzurro');
+                    for(z=0; z<arrayelements.length; z++){
+                        arrayelements[z].classList.remove('azzurro');
+                    }
+                    alert(`Hai perso con ${tentativi}tentativi`)
                 }else{
-                creaquadrato.classList.toggle('azzurro');
-                console.log(i)
+                    creaquadrato.classList.add('azzurro');
+                    console.log(i)
+                    tentativi=tentativi + 1;
+                        if(tentativi == numero - 16){
+                            alert('complimenti hai vinto')
+                        }
                 }
-             }
+            }
+            
         )
     }
 }

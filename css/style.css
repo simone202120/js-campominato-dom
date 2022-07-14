@@ -15,6 +15,16 @@ header{
 body{
     background-color: black;
 }
+.foothrader{
+    display: flex;
+}
+#play{
+    height: 40px;
+    width: 100px;
+    background-color: rgb(245, 195, 13);
+    border: none;
+    
+}
 
 #contenitore{
     width: 700px;
@@ -40,4 +50,8 @@ body{
 
 .rosso{
     background-color: brown;
+}
+
+.quadrato .none{
+background-color: black;
 }
