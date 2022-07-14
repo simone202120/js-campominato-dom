@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: white;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 30PX;
+}
+
+body{
+    background-color: black;
+}
+
+#contenitore{
+    width: 700px;
+    height: 700px;
+    margin: 50px auto 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.quadrato{
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+}
+
+.azzurro{
+    background-color: blue;
+}
