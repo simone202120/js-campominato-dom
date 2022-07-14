@@ -19,13 +19,13 @@ play.addEventListener('click', function(){
         n=49;
     }
 
-    for(x=1; x<=16; x++){
-        posBomba=Math.floor(Math.random() * (n - 1 +1 )) + 1;
+    for(let x=1; x<=16; x++){
+        posBomba=Math.floor(Math.random() * (n)) + 1;
 
-        if(posBomba != bombe){
-            bombe.push(posBomba);
-        }else{
+        if(bombe.includes(posBomba)){
             x = x-1;
+        }else{
+            bombe.push(posBomba);
         }
     }
     console.log('larray delle bombe è'+ bombe )
@@ -51,8 +51,13 @@ function creaquadrati(numero){
 
         creaquadrato.addEventListener('click',
             function (){
+                if(bombe.includes(i)){
+                    creaquadrato.classList.toggle('rosso');
+                    
+                }else{
                 creaquadrato.classList.toggle('azzurro');
                 console.log(i)
+                }
              }
         )
     }
